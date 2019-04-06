@@ -6,38 +6,33 @@
 		<?php wp_head(); ?>
 	</head>
 
-	<body <?php body_class(); ?>>
-		<header class="h-container d-flex flex-column" style="background-image: url(<?php echo get_theme_file_uri('/img/39390331741_56abc913e4_o.jpg'); ?>">
-			<a class="navbar-brand text-white" href="#">Omanova</a>
+<body <?php body_class(); ?>>
+<div class="parallax-container">
+    <div class="navbar-fixed"> 
+      <nav>
+        <div class="nav-wrapper cyan lighten-1">
+          <a href="index.html" class="brand-logo">Omanova</a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="attractions.html">Attractions</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="parallax"><img src="<?php echo get_theme_file_uri('img/muscat_center.jpg') ?>"></div>
 
-			<div class="hero">
-	            <h1>Tagline for the Company</h1>
-	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut tempor enim.</p>
-	        </div>
-
-        	<nav class="navbar navbar-expand-lg bg-transparent">
-				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="navbar-collapse collapse justify-content-center" id="navbarNav">
-					<ul class="navbar-nav mx-auto bg-transparent">
-						<li class="nav-item">
-					    	<a class="nav-link text-white active" href="<?php echo site_url(); ?>">Home</a>
-						</li>
-					    <li class="nav-item">
-					        <a class="nav-link text-white" href="<?php echo get_post_type_archive_link('package'); ?>">Packages</a>
-					    </li>
-					    <li class="nav-item">
-					        <a class="nav-link text-white" href="#">Attractions</a>
-					    </li>	
-						<li class="nav-item">
-					        <a class="nav-link text-white" href="#">About</a>
-					    </li>
-						<li class="nav-item">
-					        <a class="nav-link text-white" href="#">Contact Us</a>
-					    </li>		    
-					</ul>
-				</div>
-			</nav> 
-    	</header>
+    <ul id="nav-mobile" class="sidenav cyan lighten-1">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="attractions.html">Attractions</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+  </div>		
