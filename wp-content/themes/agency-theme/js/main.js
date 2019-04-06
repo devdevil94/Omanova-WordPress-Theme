@@ -1,9 +1,6 @@
 
 
-// Or with jQuery
-
-$(function(){
-   
+(function($){
     $('.carousel.carousel-slider').carousel({
         fullWidth: true,
         indicators: true
@@ -13,7 +10,7 @@ $(function(){
     $('.parallax').parallax();
     $('input#input_text, textarea#textarea').characterCounter();
     $('.modal').modal();
-});
+}(jQuery));
 
 
 

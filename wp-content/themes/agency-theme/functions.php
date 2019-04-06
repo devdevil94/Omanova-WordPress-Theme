@@ -2,15 +2,15 @@
 <?php 
 	function add_cdn_files(){
 		wp_enqueue_style('materialize-css', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css');
-		wp_enqueue_script('materialize-js', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js');
+		wp_enqueue_script('materialize-js', '//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', array('jquery'), microtime(), true);
 		wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Raleway');
 		wp_enqueue_style('material-icons', '//fonts.googleapis.com/icon?family=Material+Icons');
 		wp_enqueue_style('font_awesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css');
 	}
 
 	function custom_styles_scripts(){
-		wp_enqueue_style('main-style', get_template_directory_uri() . '/style.css', false, microtime(), 'all');
-		wp_enqueue_style('main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), microtime(), 'all');	
+		wp_enqueue_style('main-css', get_stylesheet_uri(), array(), microtime(), 'all');
+		wp_enqueue_script('main-js', get_template_directory_uri().'/js/main.js', array('jquery'), microtime(), true);	
 	}
 
 	function agency_adjust_queries($query){
