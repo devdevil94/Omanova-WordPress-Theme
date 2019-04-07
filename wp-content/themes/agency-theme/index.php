@@ -24,38 +24,54 @@
 <?php
     $attractionsQuery = new WP_Query(array(
       'post_type' => 'attraction',
-      'posts_per_page' => 1
+      'posts_per_page' => 5
     ));
+?>
+    <div class="row">
+<?php
     if($attractionsQuery->have_posts()){
       while($attractionsQuery->have_posts()){
         $attractionsQuery->the_post();
+        $modalTargetId = the_ID().'-modal';
+        $columnLayout ='';
+
+        if($attractionsQuery->current_post < 2)
+          $columnLayout = 'col s12 m6 l4 xl4';
+        elseif($attractionsQuery->current_post == 2)
+          $columnLayout = 'col s12 m12 l4 xl4';
+        else
+          $columnLayout = 'col s12 m6 l6 xl4';
+        
+        if($attractionsQuery->current_post == 0 || $attractionsQuery->current_post == 3) echo '<div class="row">';
 ?>
-        <div class="row">
-          <div class="col s12 m6 l4">
-            <div class="card attr-card">
-              <div class="attr-overlay hide-on-med-and-down">
-                <a class="btn-flat btn-large amber-text text-lighten-5 pink lighten-1 modal-trigger"
-                data-target="sultan-modal">View</a>
+            <div class="<?php echo $columnLayout ?>">
+              <div class="card attr-card">
+                <div class="attr-overlay hide-on-med-and-down">
+                  <a class="btn-flat btn-large amber-text text-lighten-5 pink lighten-1 modal-trigger"
+                  data-target="<?php echo $modalTargetId ?>">View</a>
+                </div>
+                <div class="card-image">
+                  <img class="modal-trigger" <?php echo 'data-target="$modalTargetId"' ?>
+                  src="<?php the_post_thumbnail(); ?>">
+                  <p class="card-title deep-orange accent-2">
+                    <a style="cursor: pointer;" class="modal-trigger amber-text text-lighten-5"
+                    data-target="<?php echo $modalTargetId ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </p>
+                </div>
               </div>
-              <div class="card-image">
-                <img class="modal-trigger" data-target="sultan-modal" src="<?php the_post_thumbnail(); ?>">
-                <p class="card-title deep-orange accent-2">
-                  <a style="cursor: pointer;" class="modal-trigger amber-text text-lighten-5"
-                  data-target="sultan-modal">
-                    <?php the_title(); ?>
-                  </a>
-                </p>
+              <div id="<?php echo $modalTargetId ?>" class="modal">
+                <div class="modal-content">
+                  <h4><?php the_title(); ?></h4>
+                  <img class="responsive-img" src="<?php the_post_thumbnail(); ?>">
+                  <p class="left-align" style="padding: 0 20px"><?php the_content(); ?></p>
+                </div>
               </div>
             </div>
-            <div id="sultan-modal" class="modal">
-              <div class="modal-content">
-                <h4><?php the_title(); ?></h4>
-                <img class="responsive-img" src="img/oman-243245_1280.jpg">
-                <p class="left-align" style="padding: 0 20px"><?php the_content(); ?></p>
-              </div>
-            </div>
-          </div>
 <?php
+        if($attractionsQuery->current_post == 2 || $attractionsQuery->current_post == 4) echo '</div>';
+
       }
     }
 ?>
