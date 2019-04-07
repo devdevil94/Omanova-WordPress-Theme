@@ -29,6 +29,21 @@
 				'singular_name' => 'Testimonial'),
 			'menu_icon' => 'dashicons-businessman' 
 		));
+
+		//Attraction Post Type
+		register_post_type('attraction', array(
+			'supports' => array('custom-fields', 'thumbnail', 'title', 'editor'),
+			'rewrite' => array('slug' => 'attractions'),
+			'public' => true,
+			'show_in_rest' => true,
+			'labels' => array(
+				'name' => 'Attractions',
+				'add_new_item' => 'Add New Attraction',
+				'edit_item' => 'Edit Attraction',
+				'all_items' => 'All Attractions',
+				'singular_name' => 'Attraction'),
+			'menu_icon' => 'dashicons-businessman' 
+		));
 	}
 	//'title', 'editor',
 	add_action( 'init', 'agency_post_types');
