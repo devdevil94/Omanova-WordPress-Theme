@@ -70,8 +70,6 @@
           </div>
         </div>
 <?php
-        get_template_part('template-parts/content', 'landing-attraction-card');
-
         if($attractionsQuery->current_post == 2 || $attractionsQuery->current_post == 4) echo '</div>';
 
       }
@@ -103,15 +101,15 @@
         $packagesQuery->the_post();
         $index = $packagesQuery->current_post;
 
+        $modalTargetId = get_the_ID().'-modal';
+
         if (has_post_thumbnail())
           $thumbUrl = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail_name')[0];
-
-        $columnLayout ='col s12 ';
 
         if($index == 0) echo '<div class="col xl6 l6 m12 s12">';
         if($index == 1 || $index == 3) echo '<div class="col xl3 l3 m6 s12">';
 ?>
-            <div class="card hoverable package-card modal-trigger" data-target="wahiba-modal">
+            <div class="card hoverable package-card modal-trigger" data-target="<?php echo $modalTargetId ?>">
               <div class="card-image waves-effect">
                 <img class="responsive-img" src="<?php echo $thumbUrl ?>">
                 <span class="badge red white-text deep-orange accent-2">$500</span>
@@ -121,7 +119,16 @@
                 </span>           
               </div>
             </div>
-
+            <div id="<?php echo $modalTargetId ?>" class="modal modal-fixed-footer">
+              <div class="modal-content" style="padding: 0 20px">
+                <h4><?php the_title() ?></h4>
+                <img class="responsive-img" src="<?php echo $thumbUrl ?>">
+                <div class="left-align"><?php the_content() ?></div>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect cyan lighten-1 btn-flat">Book</a>
+              </div>
+            </div>
 
 <?php     
         if($index == 0 || $index == 2 || $index == 4) echo '</div>';
@@ -129,6 +136,7 @@
     }
 ?>
     </div>
+    <a href="packages.html" class="btn-large waves-effect pink lighten-1">VIEW PACKAGES</a>
   </div>
 
 
