@@ -56,8 +56,8 @@
                 <img class="modal-trigger responsive-img" data-target="$modalTargetId"
                 src="<?php the_post_thumbnail(); ?>">
                 <p class="card-title deep-orange accent-2">
-                    <a style="cursor: pointer;" class="modal-trigger amber-text text-lighten-5"
-                    data-target="<?php echo $modalTargetId ?>"><?php the_title(); ?></a>
+                  <a style="cursor: pointer;" class="modal-trigger amber-text text-lighten-5"
+                  data-target="<?php echo $modalTargetId ?>"><?php the_title(); ?></a>
                 </p>
             </div>
           </div>
@@ -96,22 +96,39 @@
       'posts_per_page' => 5
     ));
 
-?>
-    <div class="row">
-      <div class="col xl6 l6 m12 s12">
-        <div class="card hoverable package-card modal-trigger" data-target="wahiba-modal">
-          <div class="card-image waves-effect">
-            <img class="responsive-img" src="img/camel-468096_1280.jpg">
-            <span class="badge red white-text deep-orange accent-2">$500</span>
-            <span class="card-title cyan-text text-lighten-1 left-align">
-              Wahiba Sands Tour<br>
-              5 Days/4 Night
-            </span>           
-          </div>
-        </div>
-      </div>
-    </div>
+    echo '<div class="row">';
 
+    if($packagesQuery->have_posts()){
+      while($packagesQuery->have_posts()){
+        $packagesQuery->the_post();
+        $index = $packagesQuery->current_post;
+
+        if (has_post_thumbnail())
+          $thumbUrl = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail_name')[0];
+
+        $columnLayout ='col s12 ';
+
+        if($index == 0) echo '<div class="col xl6 l6 m12 s12">';
+        if($index == 1 || $index == 3) echo '<div class="col xl3 l3 m6 s12">';
+?>
+            <div class="card hoverable package-card modal-trigger" data-target="wahiba-modal">
+              <div class="card-image waves-effect">
+                <img class="responsive-img" src="<?php echo $thumbUrl ?>">
+                <span class="badge red white-text deep-orange accent-2">$500</span>
+                <span class="card-title cyan-text text-lighten-1 left-align">
+                  <?php the_title(); ?><br>
+                  5 Days/4 Night
+                </span>           
+              </div>
+            </div>
+
+
+<?php     
+        if($index == 0 || $index == 2 || $index == 4) echo '</div>';
+      }
+    }
+?>
+    </div>
   </div>
 
 
