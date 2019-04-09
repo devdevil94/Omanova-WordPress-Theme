@@ -34,7 +34,7 @@
         <h6 class=" amber-text text-lighten-5"><strong>Information</strong></h6>
         <div class="divider"></div>
         <ul>
-          <li></li><a class="amber-text text-lighten-5" href="contact.html">Contact Us</a></li>
+          <li></li><a class="amber-text text-lighten-5" href="<?php echo site_url('contact-information') ?>">Contact Us</a></li>
           <li><a class="amber-text text-lighten-5" href="#!">Privacy Policy</a></li>
           <li><a class="amber-text text-lighten-5" href="#!">Terms and Conditions</a></li>
         </ul>
@@ -42,9 +42,12 @@
         <div class="divider"></div>
         <div class="container social-media-icons">
           <div class="row center">
-            <a class="col amber-text text-lighten-5 s4 fab fa-facebook fa-2x" href="#!"></a>
-            <a class="col amber-text text-lighten-5 s4 fab fa-twitter fa-2x" href="#!"></a>
-            <a class="col amber-text text-lighten-5 s4 fab fa-instagram fa-2x" href="#!"></a> 
+            <a class="col amber-text text-lighten-5 s4 fab fa-facebook fa-2x" 
+            href="<?php echo 'www.facebook.com/'.get_field('facebook') ?>"></a>
+            <a class="col amber-text text-lighten-5 s4 fab fa-twitter fa-2x" 
+            href="<?php echo 'www.twitter.com/'.get_field('twitter') ?>"></a>
+            <a class="col amber-text text-lighten-5 s4 fab fa-instagram fa-2x" 
+            href="<?php echo 'www.instagram.com/'.get_field('instagram') ?>"></a> 
           </div>             
         </div>
       </div>

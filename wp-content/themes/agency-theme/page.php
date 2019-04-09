@@ -14,7 +14,10 @@
             if(is_page('contact-information')){
 ?>
             <div class="row">
-                <p><i class="material-icons pink-text text-lighten-1">location_on</i>Address:</p>
+                <p>
+                    <i class="material-icons pink-text text-lighten-1">location_on</i>
+                    Address:
+                </p>
                 <div style="padding-left: 25px">
                     <?php echo get_field('building_name') ?><br>
                     <?php echo get_field('street') ?><br>
@@ -36,8 +39,7 @@
                 </p>
             </div>
 <?php
-            }else
-                the_content();
+            }else the_content();
 ?>
             </div>
             <div id="images" class="col xl6 l6">
