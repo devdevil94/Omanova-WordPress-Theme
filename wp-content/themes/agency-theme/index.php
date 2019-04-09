@@ -136,9 +136,45 @@
     }
 ?>
     </div>
-    <a href="packages.html" class="btn-large waves-effect pink lighten-1">VIEW PACKAGES</a>
+    <a href="#!" class="btn-large waves-effect pink lighten-1">VIEW PACKAGES</a>
   </div>
+  
+  <div id="testimonials-landing" class="amber lighten-5">
+    <h4 class="dark-text center">Testimonials</h4>
+    <div class="container">
+      <div class="row">
+<?php
+        $testimonialsQuery = new WP_Query(array(
+          'post_type' => 'testimonial',
+          'posts_per_page' => 3
+        ));
 
+        if($testimonialsQuery->have_posts()){
+          while($testimonialsQuery->have_posts()){
+            $testimonialsQuery->the_post();
+            
+            if (has_post_thumbnail())
+              $thumbUrl = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail_name')[0];
+?>
+            <div class="col xl4 l4 m12 s12">
+              <div class="card">
+                <div class="overlay"></div>
+                <div class="card-content dark-text">
+                  <p class="quote"><?php echo '"'.get_the_content().'"'; ?></p>
+                  <div class="testimonial-image center">
+                    <img width="120" height="120" src="<?php echo $thumbUrl ?>" alt="someone">
+                  </div>
+                  <p class="author center-align"><?php echo get_field('testimonial_author'); ?></p>
+                </div>
+              </div>
+            </div>
+<?php
+          }
+        }
+?>
+      </div>
+    </div>
+  </div>
 
 
 <?php get_footer(); ?>

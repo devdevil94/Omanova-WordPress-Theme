@@ -18,7 +18,7 @@
 
 		//Testimonial Post Type
 		register_post_type('testimonial', array(
-			'supports' => array('custom-fields', 'thumbnail'),
+			'supports' => array('custom-fields', 'thumbnail', 'editor'),
 			'rewrite' => array('slug' => 'testimonials'),
 			'public' => true,
 			'labels' => array(
