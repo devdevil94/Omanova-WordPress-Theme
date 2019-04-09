@@ -136,7 +136,8 @@
     }
 ?>
     </div>
-    <a href="#!" class="btn-large waves-effect pink lighten-1">VIEW PACKAGES</a>
+    <a href="<?php echo get_post_type_archive_link('package'); ?>"
+    class="btn-large waves-effect pink lighten-1">VIEW PACKAGES</a>
   </div>
   
   <div id="testimonials-landing" class="amber lighten-5">

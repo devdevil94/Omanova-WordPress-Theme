@@ -18,6 +18,7 @@
 			$query->set('orderby', 'title');
 			$query->set('order', 'ASC');
 			$query->set('posts_per_page', -1);
+			$query->set('post_type', 'package');
 		}
 	}
 

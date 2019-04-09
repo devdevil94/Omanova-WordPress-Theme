@@ -21,8 +21,8 @@
 					</a>
 					<ul class="right hide-on-med-and-down">
 						<li><a href="<?php echo site_url(); ?>">Home</a></li>
-						<li><a href="packages.html">Packages</a></li>
-						<li><a href="attractions.html">Attractions</a></li>
+						<li><a href="<?php echo get_post_type_archive_link('package'); ?>">Packages</a></li>
+						<li><a href="<?php echo get_post_type_archive_link('attraction'); ?>">Attractions</a></li>
 						<li><a href="about.html">About Us</a></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
