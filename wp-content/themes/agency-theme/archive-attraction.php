@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
  
-<div id="packages" class="container">
-	<h4>Packages</h4>
+<div id="attractions" class="container">
+	<h4>Attractions</h4>
 <?php 
   		while (have_posts()) {
 			the_post();
@@ -11,12 +11,12 @@
 			if (has_post_thumbnail())
 			$thumbUrl = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail_name')[0];
 ?>
-			<div class="row package">
-				<div class="col xl5 l5 m12 s12 package-image">
+			<div class="row attraction">
+				<div class="col xl5 l5 m12 s12 attraction-image">
 					<img class="responsive-img modal-trigger"
 					data-target="<?php echo $modalTargetId ?>" src="<?php echo $thumbUrl ?>">
 				</div>
-				<div class="col xl7 l7 m12 s12 package-content">
+				<div class="col xl7 l7 m12 s12 attraction-content">
 					<h5 class="modal-trigger" data-target="<?php echo $modalTargetId ?>"><?php the_title() ?></h5>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.

@@ -75,7 +75,8 @@
       }
     }
 ?>
-    <a href="packages.html" class="btn-large waves-effect pink lighten-1">VIEW ATTRACTIONS</a>
+  <?php echo get_post_type_archive_link('attraction'); ?>
+    <a href="<?php echo get_post_type_archive_link('attraction'); ?>" class="btn-large waves-effect pink lighten-1">VIEW ATTRACTIONS</a>
   </div>
 
   <div class="divider"></div>

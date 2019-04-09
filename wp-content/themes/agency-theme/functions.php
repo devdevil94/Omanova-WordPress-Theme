@@ -17,8 +17,14 @@
 		if (!is_admin() AND is_post_type_archive('package') AND $query->is_main_query()) {
 			$query->set('orderby', 'title');
 			$query->set('order', 'ASC');
-			$query->set('posts_per_page', -1);
+			$query->set('posts_per_page', -1);///////
 			$query->set('post_type', 'package');
+		}
+		if (!is_admin() AND is_post_type_archive('attraction') AND $query->is_main_query()) {
+			$query->set('orderby', 'title');
+			$query->set('order', 'ASC');
+			$query->set('posts_per_page', -1);////////
+			$query->set('post_type', 'attraction');
 		}
 	}
 

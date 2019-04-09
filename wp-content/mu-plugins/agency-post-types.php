@@ -32,6 +32,7 @@
 
 		//Attraction Post Type
 		register_post_type('attraction', array(
+			'has_archive' => true,
 			'supports' => array('custom-fields', 'thumbnail', 'title', 'editor'),
 			'rewrite' => array('slug' => 'attractions'),
 			'public' => true,
