@@ -21,8 +21,22 @@
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Doloremque, ipsum? Magnam reiciendis unde<br>
-						<span><i class="material-icons pink-text text-lighten-1">access_time</i> Duration: 5 Days/4 Nights </span><br>
-						<span><i class="material-icons pink-text text-lighten-1">attach_money</i> Price (per pax): $500 </span><br>
+						<span>
+							<i class="material-icons pink-text text-lighten-1">access_time</i>
+<?php
+							$days = get_field('duration');
+							if($days < 1)
+								echo'';
+								elseif($days == 1)
+							echo 'Duration: 1 Day';
+								else
+							echo 'Duration: '.$days.' Days/'.($days-1).' Nights';
+?>
+						</span><br>
+						<span>
+							<i class="material-icons pink-text text-lighten-1">attach_money</i> 
+							<?php echo 'Price (per pax): $'.get_field('price') ?>
+						</span><br>
 						<a class="btn-flat right btn-small amber-text text-lighten-5 cyan lighten-1 modal-trigger" data-target="<?php echo $modalTargetId ?>">View Details</a>
 					</p>
 				</div>
