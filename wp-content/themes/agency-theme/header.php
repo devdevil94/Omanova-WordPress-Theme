@@ -23,8 +23,8 @@
 						<li><a href="<?php echo site_url(); ?>">Home</a></li>
 						<li><a href="<?php echo get_post_type_archive_link('package'); ?>">Packages</a></li>
 						<li><a href="<?php echo get_post_type_archive_link('attraction'); ?>">Attractions</a></li>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="<?php echo site_url('/about-us'); ?>">About Us</a></li>
+						<li><a href="<?php echo site_url('/contact-information'); ?>">Contact</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -36,8 +36,8 @@
 			<li><a href="<?php echo site_url(); ?>">Home</a></li>
 			<li><a href="<?php echo get_post_type_archive_link('package'); ?>">Packages</a></li>
 			<li><a href="<?php echo get_post_type_archive_link('attraction'); ?>">Attractions</a></li>
-			<li><a href="about.html">About Us</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li><a href="<?php echo site_url('/about-us'); ?>">About Us</a></li>
+			<li><a href="<?php echo site_url('/contact-information'); ?>">Contact</a></li>
 		</ul>
 	</div>
 </header>		
