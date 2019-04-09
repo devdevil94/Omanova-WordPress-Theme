@@ -113,10 +113,20 @@
             <div class="card hoverable package-card modal-trigger" data-target="<?php echo $modalTargetId ?>">
               <div class="card-image waves-effect">
                 <img class="responsive-img" src="<?php echo $thumbUrl ?>">
-                <span class="badge red white-text deep-orange accent-2">$500</span>
+                <span class="badge red white-text deep-orange accent-2"><?php echo '$'.get_field('price') ?></span>
                 <span class="card-title cyan-text text-lighten-1 left-align">
                   <?php the_title(); ?><br>
-                  5 Days/4 Night
+                  <span>
+<?php
+                    $days = get_field('duration');
+                    if($days < 1)
+                      echo'';
+                    elseif($days == 1)
+                      echo '1 Day';
+                    else
+                      echo $days.' Days/'.($days-1).' Nights';
+?>
+                  </span>
                 </span>           
               </div>
             </div>
