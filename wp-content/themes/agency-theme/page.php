@@ -10,7 +10,35 @@
 ?>
             <h4><?php the_title() ?></h4>
             <div class="col xl6 l6">
-                <?php the_content() ?>
+<?php
+            if(is_page('contact-information')){
+?>
+            <div class="row">
+                <p><i class="material-icons pink-text text-lighten-1">location_on</i>Address:</p>
+                <div style="padding-left: 25px">
+                    <?php echo get_field('building_name') ?><br>
+                    <?php echo get_field('street') ?><br>
+                    <?php echo get_field('city_town').' '.get_field('zip_code'); ?><br>
+                    <?php echo get_field('state_province') ?> <br>
+                    <?php echo get_field('country') ?>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    <i class="material-icons pink-text text-lighten-1">local_phone</i>
+                    Phone: <?php echo '+'.get_field('phone_no') ?>
+                </p>
+            </div>
+            <div class="row">
+                <p>
+                    <i class="material-icons pink-text text-lighten-1">email</i>
+                    Email: <?php echo get_field('email') ?>
+                </p>
+            </div>
+<?php
+            }else
+                the_content();
+?>
             </div>
             <div id="images" class="col xl6 l6">
                 <div class="row">
